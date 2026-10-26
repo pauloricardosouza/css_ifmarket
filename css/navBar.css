@@ -1,85 +1,122 @@
-/* Define a fonte de todos os elementos da página. */
+/* O seletor universal (*) seleciona todos os elementos da página. */
 * {
+    /* Tenta usar Arial; se indisponível, Helvetica;
+       por último, uma fonte da família genérica sans-serif. */
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Remove os espaçamentos padrão do corpo da página. */
+/* Seleciona o corpo da página. */
 body {
-    margin: 0;
-    padding: 0;
+    margin: 0;  /* Remove as margens externas padrão do navegador. */
+    padding: 0; /* Remove o espaçamento interno. */
 }
 
-/* Centraliza o conteúdo do cabeçalho e cria espaço interno. */
+/* Seleciona o cabeçalho da página. */
 header {
-    text-align: center;
-    padding: 20px;
+    text-align: center; /* Centraliza textos e elementos inline, como a imagem. */
+    padding: 20px;      /* Cria espaço interno de 20px em todos os lados. */
 }
 
-/* Centraliza o conteúdo principal e limita sua largura. */
+/* Seleciona a área de conteúdo principal. */
 main {
-    width: 100%;
-    max-width: 1140px;
+    width: 100%;       /* Ocupa toda a largura disponível, respeitando max-width. */
+    max-width: 1140px; /* Limita a largura em telas grandes. */
+
+    /* Sem margem no topo e na base.
+       As margens laterais automáticas centralizam o elemento. */
     margin: 0 auto;
-    padding: 20px 20px 80px; /* Reserva espaço inferior para o rodapé fixo. */
-    box-sizing: border-box; /* Inclui padding e borda na largura definida. */
+
+    /* Espaço interno: 20px no topo, 20px nas laterais e 80px na base.
+       O espaço inferior ajuda a evitar que o rodapé fixo cubra o conteúdo. */
+    padding: 20px 20px 80px;
+
+    /* Inclui padding e borda no cálculo da largura definida. */
+    box-sizing: border-box;
 }
 
-/* Mantém a navegação no topo quando ela é alcançada pela rolagem. */
+/* Seleciona a área de navegação. */
 nav {
+    /* O menu acompanha o fluxo normal até atingir o limite definido em top.
+       Depois, permanece preso a esse limite enquanto seu contêiner permitir. */
     position: sticky;
-    top: 0;
-    z-index: 10; /* Mantém a navegação acima dos conteúdos comuns. */
+
+    top: 0; /* Define o limite como o topo da área de rolagem. */
+
+    /* Controla a sobreposição: mantém o menu acima de conteúdos comuns. */
+    z-index: 10;
 }
 
-/* Estiliza a lista de links da navegação. */
+/* Seleciona as listas não ordenadas que estão dentro de nav. */
 nav ul {
-    list-style-type: none;     /* Remove os marcadores. */
-    margin: 0;
-    padding: 0;
-    overflow: hidden;         /* Contém os itens posicionados com float. */
-    background-color: #333333;
+    list-style-type: none; /* Remove os marcadores da lista. */
+    margin: 0;            /* Remove as margens externas. */
+    padding: 0;           /* Remove o espaçamento interno padrão da lista. */
+
+    /* Faz a lista conter os itens com float e recorta conteúdo
+       que ultrapasse seus limites. */
+    overflow: hidden;
+
+    background-color: #333333; /* Define o fundo cinza escuro do menu. */
 }
 
-/* Posiciona os itens do menu lado a lado, à esquerda. */
+/* Seleciona os itens de lista que estão dentro de nav. */
 nav li {
+    /* Posiciona os itens à esquerda, lado a lado enquanto houver espaço.
+       O estilo embutido float: right do item Login altera esse comportamento. */
     float: left;
 }
 
-/* Define a aparência dos links do menu. */
+/* Seleciona os links dentro dos itens da navegação. */
 nav li a {
+    /* Faz o link formar uma caixa de bloco.
+       Toda a área do link, incluindo o padding, pode ser clicada. */
     display: block;
-    color: #FFFFFF;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none; /* Remove o sublinhado. */
+
+    color: #FFFFFF;        /* Define o texto branco. */
+    text-align: center;    /* Centraliza o texto dentro do link. */
+    padding: 14px 16px;    /* Espaço interno: 14px no topo/base e 16px nas laterais. */
+    text-decoration: none; /* Remove o sublinhado padrão do link. */
 }
 
-/* Destaca o link ao passar o mouse ou navegar pelo teclado. */
+/* A vírgula aplica a mesma regra aos dois seletores.
+   :hover identifica o link sob o ponteiro do mouse.
+   :focus-visible identifica o link cujo foco deve ser destacado,
+   normalmente durante a navegação por teclado. */
 nav li a:hover,
 nav li a:focus-visible {
-    background-color: #111111;
+    background-color: #111111; /* Escurece o fundo do link. */
 }
 
-/* Destaca o link que possui a classe active no HTML. */
+/* Seleciona os links da navegação que possuem a classe active.
+   Essa classe deve ser colocada no HTML da página correspondente. */
 nav li a.active {
-    background-color: #4CAF50;
+    background-color: #4CAF50; /* Destaca o link com fundo verde. */
 }
 
-/* Define margens para títulos de nível 2 e parágrafos. */
+/* A vírgula seleciona todos os elementos h2 e todos os elementos p. */
 h2, p {
-    margin: 10px;
+    margin: 10px; /* Define margem externa de 10px em todos os lados. */
 }
 
-/* Mantém o rodapé fixo na parte inferior da janela. */
+/* Seleciona o rodapé da página. */
 footer {
-    background-color: #333333;
-    color: #FFFFFF;
-    text-align: center;
-    padding: 10px;
+    background-color: #333333; /* Define o fundo cinza escuro. */
+    color: #FFFFFF;           /* Define o texto branco. */
+    text-align: center;       /* Centraliza o texto. */
+    padding: 10px;            /* Cria espaço interno em todos os lados. */
+
+    /* Retira o rodapé do fluxo normal e o mantém fixo na janela.
+       Por isso, o main precisa reservar espaço para ele. */
     position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    box-sizing: border-box; /* Evita que o padding aumente a largura total. */
+
+    bottom: 0;   /* Encosta o rodapé na borda inferior da janela. */
+    left: 0;     /* Alinha o rodapé à borda esquerda da janela. */
+    width: 100%; /* Ocupa toda a largura da janela. */
+
+    /* Inclui o padding e a borda nos 100% de largura,
+       evitando que o rodapé ultrapasse a largura da janela. */
+    box-sizing: border-box;
+
+    /* Mantém o rodapé acima de conteúdos comuns da página. */
     z-index: 10;
 }
