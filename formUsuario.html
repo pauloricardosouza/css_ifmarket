@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuário</title>
+    <link href="css/navBar.css" rel="stylesheet">
+    <link href="css/estiloForm.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Cabeçalho da página -->
+    <header>
+        <img src="img/ifMarket.png" style="width:200px;">
+        <h2>IFMarket</h2>
+        <p>A plataforma de anúncios do IFPR campus TB!</p>
+    </header>
+
+    <nav aria-label="Navegação principal">
+        <ul>
+            <li><a href="index.html" title="Ir para a página inicial">Página Inicial</a></li>
+            <li><a href="sobre.html" title="Saiba mais sobre nós">Sobre</a></li>
+            <li style="float: right;"><a href="formLogin.html" title="Faça login para acessar o sistema" class="active">Login</a></li>
+        </ul>
+    </nav>
+
+    <main class="main">
+        <section class="secaoFormulario" aria-labelledby="tituloCadastro">
+            <h2 id="tituloCadastro">Cadastro de Usuário</h2>
+            <p>Preencha os campos abaixo. Os campos com * são obrigatórios.</p>
+
+            <!-- O envio da foto exige enctype="multipart/form-data".
+                 actionUsuario.php deverá ser criado na etapa de back-end. -->
+            <form class="formulario" action="actionUsuario.php" method="post" enctype="multipart/form-data">
+                <div class="campo">
+                    <label for="fotoUsuario">Foto</label>
+                    <input type="file" id="fotoUsuario" name="fotoUsuario" accept="image/*">
+                </div>
+
+                <div class="campo">
+                    <label for="nomeUsuario">Nome completo *</label>
+                    <input type="text" id="nomeUsuario" name="nomeUsuario" autocomplete="name" required>
+                </div>
+
+                <div class="campo">
+                    <label for="dataNascimentoUsuario">Data de nascimento *</label>
+                    <input type="date" id="dataNascimentoUsuario" name="dataNascimentoUsuario" autocomplete="bday" required>
+                </div>
+
+                <div class="campo">
+                    <label for="cidadeUsuario">Cidade *</label>
+                    <select id="cidadeUsuario" name="cidadeUsuario" required>
+                        <option value="" selected disabled>Selecione uma cidade</option>
+                        <option value="Curiúva">Curiúva</option>
+                        <option value="Imbaú">Imbaú</option>
+                        <option value="Ortigueira">Ortigueira</option>
+                        <option value="Reserva">Reserva</option>
+                        <option value="Tibagi">Tibagi</option>
+                        <option value="Telêmaco Borba">Telêmaco Borba</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="emailUsuario">E-mail *</label>
+                    <input type="email" id="emailUsuario" name="emailUsuario" autocomplete="email" required>
+                </div>
+
+                <div class="campo">
+                    <label for="senhaUsuario">Senha *</label>
+                    <input type="password" id="senhaUsuario" name="senhaUsuario" autocomplete="new-password" required>
+                </div>
+
+                <div class="campo">
+                    <label for="confirmarSenhaUsuario">Confirmar senha *</label>
+                    <input type="password" id="confirmarSenhaUsuario" name="confirmarSenhaUsuario" autocomplete="new-password" required>
+                </div>
+
+                <div class="acoes">
+                    <button type="submit" class="botao-acao">Cadastrar</button>
+                    <button type="reset" class="botao-limpar">Limpar</button>
+                </div>
+            </form>
+
+        </section>
+    </main>
+
+    <footer>
+        IFPR Campus Telêmaco Borba - TADS - Disciplina de Tecnologias Web
+    </footer>
+</body>
+</html>

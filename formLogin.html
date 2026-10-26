@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IFMarket</title>
+    <title>Cadastro de Usuário</title>
     <link href="css/navBar.css" rel="stylesheet">
+    <link href="css/estiloForm.css" rel="stylesheet">
 </head>
 <body>
-
     <!-- Cabeçalho da página -->
     <header>
         <img src="img/logotipo.png" style="width:200px;">
@@ -15,68 +15,44 @@
         <p>A plataforma de anúncios do IFPR campus TB!</p>
     </header>
 
-    <!-- Barra de Navegação da página-->
-    <nav>
+    <nav aria-label="Navegação principal">
         <ul>
             <li><a href="index.html" title="Ir para a página inicial">Página Inicial</a></li>
-            <li><a href="sobre.html" title="Saiba mais sobre a plataforma">Sobre</a></li>
-            <li style="float:right;"><a href="formLogin.html" title="Faça login para acessar as funções do sistema" class="active">Login</a></li>
+            <li><a href="sobre.html" title="Saiba mais sobre nós">Sobre</a></li>
+            <li style="float: right;"><a href="formLogin.html" title="Faça login para acessar o sistema" class="active">Login</a></li>
         </ul>
     </nav>
 
-    <!-- Área principal (conteúdo) da Página -->
-    <main>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
+    <main class="main">
+        <section class="secaoFormulario" aria-labelledby="tituloCadastro">
+            <h2 id="tituloCadastro">Cadastro de Usuário</h2>
+            <p>Preencha os campos abaixo. Os campos com * são obrigatórios.</p>
+
+            <!-- O envio da foto exige enctype="multipart/form-data".
+                 actionUsuario.php deverá ser criado na etapa de back-end. -->
+            <form class="formulario" action="actionUsuario.php" method="post" enctype="multipart/form-data">
+                
+                <div class="campo">
+                    <label for="emailUsuario">E-mail *</label>
+                    <input type="email" id="emailUsuario" name="emailUsuario" autocomplete="email" required>
+                </div>
+
+                <div class="campo">
+                    <label for="senhaUsuario">Senha *</label>
+                    <input type="password" id="senhaUsuario" name="senhaUsuario" autocomplete="new-password" required>
+                </div>
+
+                <div class="acoes">
+                    <button type="submit" class="botao-acao">Login</button>
+                </div>
+            </form>
+
+            <p class="link-login">Ainda não possui uma conta? <a href="formUsuario.html">Clique aqui</a>!</p>
+        </section>
     </main>
 
-    <!-- Rodapé da Página -->
     <footer>
         IFPR Campus Telêmaco Borba - TADS - Disciplina de Tecnologias Web
     </footer>
-    
 </body>
 </html>

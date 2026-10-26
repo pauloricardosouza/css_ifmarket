@@ -1,0 +1,99 @@
+/* Centraliza a seção do formulário e limita sua largura. */
+.secaoFormulario {
+    max-width: 600px; /* Define a largura máxima da seção. */
+    margin: 0 auto;   /* Remove margens verticais e centraliza horizontalmente. */
+}
+
+/* Define a aparência da caixa do formulário. */
+.formulario {
+    background-color: #F5F5F5;  /* Fundo cinza claro. */
+    border: 1px solid #DDDDDD;  /* Borda contínua de 1px. */
+    border-radius: 8px;        /* Arredonda os cantos. */
+    padding: 24px;             /* Espaço entre a borda e o conteúdo. */
+    margin-top: 20px;          /* Espaço externo acima do formulário. */
+}
+
+/* Cada grupo reúne um rótulo e seu campo de preenchimento. */
+.campo {
+    margin-bottom: 18px; /* Separa o grupo do próximo elemento. */
+}
+
+/* Estiliza as label que estão dentro dos grupos de campos. */
+.campo label {
+    display: block;     /* Coloca o rótulo em uma linha própria. */
+    font-weight: bold;  /* Aplica negrito ao texto. */
+    margin-bottom: 6px; /* Espaço entre o rótulo e o campo. */
+}
+
+/* A vírgula aplica as mesmas regras aos inputs e selects
+   que estão dentro de elementos com a classe campo. */
+.campo input,
+.campo select {
+    width: 100%;               /* Ocupa toda a largura disponível no grupo. */
+    padding: 10px;             /* Espaço interno ao redor do conteúdo. */
+    border: 1px solid #BBBBBB; /* Borda cinza contínua. */
+    border-radius: 4px;        /* Arredonda os cantos dos campos. */
+    box-sizing: border-box;   /* Inclui padding e borda nos 100% de largura. */
+    font-size: 1rem;           /* Usa o tamanho de fonte definido na raiz (html). */
+    background-color: #FFFFFF; /* Define o fundo branco. */
+    min-width: 0;             /* Permite que o campo encolha em layouts flex ou grid. */
+}
+
+/* :focus seleciona o campo que está recebendo interação,
+   por exemplo, após um clique ou navegação com a tecla Tab. */
+.campo input:focus,
+.campo select:focus {
+    border-color: #2E7D32;     /* Altera a cor da borda para verde. */
+    outline: 2px solid #2E7D32; /* Cria um contorno que não ocupa espaço no layout. */
+    outline-offset: 2px;      /* Afasta o contorno da borda do campo. */
+}
+
+/* Estiliza todos os botões dentro do elemento com a classe acoes. */
+.acoes button {
+    padding: 10px 20px; /* Espaço interno: 10px no topo/base e 20px nas laterais. */
+    border: none;      /* Remove a borda padrão do botão. */
+    border-radius: 4px; /* Arredonda os cantos. */
+    font-size: 1rem;   /* Usa o tamanho de fonte definido na raiz (html). */
+    cursor: pointer;  /* Exibe o cursor em formato de mão ao passar o mouse. */
+    margin: 0 6px 8px 0; /* Margens: topo, direita, base e esquerda. */
+}
+
+/* Define as cores do botão de ação principal, como Cadastrar ou Entrar. */
+.botao-acao {
+    background-color: #4CAF50; /* Fundo verde. */
+    color: #FFFFFF;           /* Texto branco. */
+}
+
+/* :hover aplica o estilo quando o ponteiro está sobre o botão. */
+.botao-acao:hover {
+    background-color: #1B5E20; /* Escurece o fundo verde. */
+}
+
+/* Define as cores do botão de limpar. */
+.botao-limpar {
+    background-color: #DDDDDD; /* Fundo cinza claro. */
+    color: #222222;           /* Texto cinza escuro. */
+}
+
+/* Altera o fundo quando o ponteiro está sobre o botão de limpar. */
+.botao-limpar:hover {
+    background-color: #CCCCCC;
+}
+
+/* Exibe um destaque quando o navegador considera necessário
+   indicar o foco, normalmente durante a navegação por teclado. */
+.acoes button:focus-visible {
+    outline: 2px solid #333333; /* Cria um contorno cinza escuro. */
+    outline-offset: 3px;       /* Afasta o contorno da borda do botão. */
+}
+
+/* Estiliza o texto que apresenta o link para a página de login. */
+.link-login {
+    text-align: center; /* Centraliza o texto e o link. */
+    margin-top: 20px;   /* Cria espaço acima desse elemento. */
+}
+
+/* Estiliza os links dentro do elemento com a classe link-login. */
+.link-login a {
+    color: #2E7D32; /* Define a cor verde do link. */
+}
