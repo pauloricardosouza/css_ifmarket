@@ -1,80 +1,177 @@
+<!-- Declara que o documento utiliza HTML5. -->
 <!DOCTYPE html>
+
+<!-- Define o português brasileiro como idioma da página. -->
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Inicial</title>
-    <link href="css/navBar.css" rel="stylesheet">
-</head>
-<body>
-    <!-- Cabeçalho da página -->
-    <header>
-        <img src="img/ifMarket.png" style="width:200px;">
-        <h2>IFMarket</h2>
-        <p>A plataforma de anúncios do IFPR campus TB!</p>
-    </header>
 
-    <nav>
-        <ul>
-            <li><a href="index.html" title="Ir para a página inicial" class="active">Página Inicial</a></li>
-            <li><a href="#sobre.html" title="Saiba mais sobre nós">Sobre</a></li>
-            <li style="float:right;"><a href="formlogin.html" title="Faça login para acessar as funcionalidades do sistema">Login</a></li>
-        </ul>
-    </nav>
+    <!-- Reúne configurações e referências aos recursos da página. -->
+    <head>
+        <!-- Define a codificação de caracteres, permitindo acentos. -->
+        <meta charset="UTF-8">
 
-    <!-- Área principal (conteúdo) da Página -->
-    <main>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-        <p>Teste</p>
-    </main>
+        <!-- Ajusta a área de visualização à largura do dispositivo,
+            com escala inicial de 100%. -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <footer>
-        IFPR Campus Telêmaco Borba - TADS - Disciplina de Tecnologias Web
-    </footer>
-</body>
+        <!-- Define o título exibido na aba do navegador. -->
+        <title>Página Inicial</title>
+
+        <!-- Importa os estilos gerais da página e da navegação. -->
+        <link href="css/navBar.css" rel="stylesheet">
+
+        <!-- Importa os estilos da grade e dos cards de anúncios. -->
+        <link href="css/estiloGrid.css" rel="stylesheet">
+    </head>
+
+    <!-- Contém os elementos apresentados na página. -->
+    <body>
+
+        <!-- Cabeçalho com o logo, o nome e a apresentação do sistema. -->
+        <header>
+            <!-- src indica o caminho da imagem.
+                style aplica CSS embutido para definir a largura em 200px. -->
+            <img src="img/ifMarket.png" style="width:200px;">
+
+            <!-- Parágrafo de apresentação do sistema. -->
+            <p>A plataforma de anúncios do IFPR campus TB!</p>
+        </header>
+
+        <!-- Delimita a área de navegação do sistema. -->
+        <nav>
+
+            <!-- Lista não ordenada utilizada para organizar os links do menu. -->
+            <ul>
+                <!-- li representa um item da lista.
+                    href indica o destino do link.
+                    title fornece uma informação adicional.
+                    A classe active destaca o link da página atual pelo CSS. -->
+                <li><a href="index.html" title="Ir para a página inicial" class="active">Página Inicial</a></li>
+
+                <!-- O # indica um destino dentro da página atual.
+                    Para abrir outro arquivo, use href="sobre.html". -->
+                <li><a href="sobre.html" title="Saiba mais sobre nós">Sobre</a></li>
+
+                <!-- O CSS embutido float:right posiciona o item à direita do menu.
+                    O link aponta para a página de login. -->
+                <li style="float:right;"><a href="formlogin.html" title="Faça login para acessar as funcionalidades do sistema">Login</a></li>
+            </ul>
+        </nav>
+
+        <!-- Delimita o conteúdo principal da página.
+            A classe main permite selecionar este elemento no CSS com .main.
+            O seletor de elemento main também se aplica a ele. -->
+        <main class="main">
+
+            <!-- Título da área de anúncios. -->
+            <h2>Anúncios disponíveis</h2>
+
+            <!-- Agrupa os anúncios.
+                A classe lista-anuncios aplica o layout em grade.
+                aria-label identifica a seção para tecnologias assistivas. -->
+            <section class="lista-anuncios" aria-label="Lista de anúncios">
+
+                <!-- Primeiro anúncio.
+                    article representa um conteúdo independente.
+                    A classe anuncio define a aparência de card. -->
+                <article class="anuncio">
+
+                    <!-- Usa o logo como imagem provisória do anúncio.
+                        alt fornece um texto alternativo para a imagem. -->
+                    <img src="img/ifMarket.png" alt="Foto do Anúncio">
+
+                    <!-- Agrupa as informações e o link do anúncio.
+                        A classe permite organizar esse conteúdo pelo CSS. -->
+                    <div class="anuncio-conteudo">
+
+                        <!-- Título de nível 3 com o nome do produto. -->
+                        <h3>Bicicleta</h3>
+
+                        <!-- Descrição resumida do produto. -->
+                        <p>Bicicleta em bom estado, ideal para passeios.</p>
+
+                        <!-- A classe anuncio-preco destaca o valor pelo CSS. -->
+                        <p class="anuncio-preco">R$ 650,00</p>
+
+                        <!-- Link para a página de detalhes.
+                            A classe botao-anuncio dá ao link aparência de botão. -->
+                        <a href="#visualizarAnuncio.html" class="botao-anuncio">Ver anúncio</a>
+                    </div>
+                </article>
+
+                <!-- Segundo anúncio: reutiliza a estrutura e as classes do primeiro. -->
+                <article class="anuncio">
+
+                    <!-- Imagem provisória do anúncio de notebook. -->
+                    <img src="img/ifMarket.png" alt="Foto do Anúncio">
+
+                    <!-- Informações do notebook. -->
+                    <div class="anuncio-conteudo">
+                        <!-- Nome do produto. -->
+                        <h3>Notebook</h3>
+
+                        <!-- Descrição resumida. -->
+                        <p>Notebook para estudos e atividades do dia a dia.</p>
+
+                        <!-- Preço do produto. -->
+                        <p class="anuncio-preco">R$ 1.800,00</p>
+
+                        <!-- Acesso à página de detalhes. -->
+                        <a href="#visualizarAnuncio.html" class="botao-anuncio">Ver anúncio</a>
+                    </div>
+                </article>
+
+                <!-- Terceiro anúncio: coleção de livros de programação. -->
+                <article class="anuncio">
+
+                    <!-- Imagem provisória do anúncio de livros. -->
+                    <img src="img/ifMarket.png" alt="Foto do Anúncio">
+
+                    <!-- Informações da coleção de livros. -->
+                    <div class="anuncio-conteudo">
+                        <!-- Nome do produto. -->
+                        <h3>Livros de programação</h3>
+
+                        <!-- Descrição resumida. -->
+                        <p>Coleção de livros para aprender desenvolvimento web.</p>
+
+                        <!-- Preço da coleção. -->
+                        <p class="anuncio-preco">R$ 120,00</p>
+
+                        <!-- Acesso à página de detalhes. -->
+                        <a href="#visualizarAnuncio.html" class="botao-anuncio">Ver anúncio</a>
+                    </div>
+                </article>
+
+                <!-- Quarto anúncio: console Nintendo Switch 2.
+                    Completa a primeira linha quando o CSS define quatro colunas. -->
+                <article class="anuncio">
+
+                    <!-- Imagem provisória do anúncio do console. -->
+                    <img src="img/ifMarket.png" alt="Foto do Anúncio">
+
+                    <!-- Informações do console. -->
+                    <div class="anuncio-conteudo">
+                        <!-- Nome do produto. -->
+                        <h3>Nintendo Switch 2</h3>
+
+                        <!-- Descrição ilustrativa do produto anunciado. -->
+                        <p>Console Nintendo Switch 2 edição especial Zelda Ocarina Of Time.</p>
+
+                        <!-- Preço do produto. -->
+                        <p class="anuncio-preco">R$ 5500,00</p>
+
+                        <!-- Todos os cards apontam para a mesma página de exemplo.
+                            A identificação de cada anúncio poderá ser implementada depois. -->
+                        <a href="#visualizarAnuncio.html" class="botao-anuncio">Ver anúncio</a>
+                    </div>
+                </article>
+
+            </section>
+        </main>
+
+        <!-- Rodapé com a identificação da instituição, do curso e da disciplina. -->
+        <footer>
+            IFPR Campus Telêmaco Borba - TADS - Disciplina de Tecnologias Web
+        </footer>
+    </body>
 </html>
-
-

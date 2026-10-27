@@ -1,0 +1,126 @@
+/* Organiza os cards de anúncios em uma grade. */
+.lista-anuncios {
+    display: grid; /* Ativa o layout CSS Grid. */
+
+    /* Cria quatro colunas de mesma largura.
+       repeat(4, ...) repete a definição quatro vezes.
+       minmax(0, 1fr) permite que cada coluna encolha até zero
+       e receba uma parte igual do espaço disponível. */
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    /* Faz as linhas criadas automaticamente terem a mesma altura,
+       considerando o espaço necessário para acomodar o conteúdo. */
+    grid-auto-rows: 1fr;
+
+    gap: 20px;          /* Define o espaço entre as linhas e as colunas. */
+    margin-top: 20px;   /* Cria espaço externo acima da grade. */
+}
+
+/* Define a aparência e a organização de cada card. */
+.anuncio {
+    display: flex;          /* Ativa o Flexbox dentro do card. */
+    flex-direction: column; /* Organiza imagem e conteúdo verticalmente. */
+
+    /* Permite que o card encolha para caber na coluna da grade,
+       mesmo quando seu conteúdo tiver uma largura maior. */
+    min-width: 0;
+
+    background-color: #FFFFFF; /* Define o fundo branco. */
+    border: 1px solid #DDDDDD;  /* Cria uma borda cinza contínua de 1px. */
+    border-radius: 8px;        /* Arredonda os cantos do card. */
+
+    /* Recorta o conteúdo que ultrapassar os limites do card,
+       fazendo a imagem respeitar os cantos arredondados. */
+    overflow: hidden;
+}
+
+/* Seleciona as imagens que estão dentro dos cards. */
+.anuncio img {
+    display: block; /* Evita o espaço de linha que imagens inline podem deixar abaixo. */
+    width: 100%;   /* Faz a imagem ocupar toda a largura interna do card. */
+    height: 180px; /* Padroniza a altura das imagens. */
+
+    /* Preenche a área da imagem mantendo suas proporções.
+       Partes da foto podem ser recortadas para preencher essa área. */
+    object-fit: cover;
+}
+
+/* Organiza o título, a descrição, o preço e o botão do anúncio. */
+.anuncio-conteudo {
+    display: flex;          /* Ativa o Flexbox nessa área. */
+    flex-direction: column; /* Organiza as informações verticalmente. */
+
+    /* Faz essa área crescer e preencher o espaço restante do card. */
+    flex: 1;
+
+    padding: 16px; /* Cria espaço interno ao redor das informações. */
+
+    /* Permite quebrar palavras ou endereços muito longos
+       para evitar que ultrapassem a largura disponível. */
+    overflow-wrap: anywhere;
+}
+
+/* Seleciona os títulos de nível 3 dentro dos cards. */
+.anuncio h3 {
+    /* Sem margem no topo e nas laterais; 12px abaixo do título. */
+    margin: 0 0 12px;
+}
+
+/* Seleciona os parágrafos dentro dos cards.
+   Este seletor tem prioridade sobre a regra geral de p do navBar.css. */
+.anuncio p {
+    margin: 0 0 16px; /* Sem margem no topo/laterais; 16px abaixo. */
+
+    /* Define a altura de cada linha como 1,5 vez o tamanho da fonte. */
+    line-height: 1.5;
+}
+
+/* Destaca o preço do anúncio. */
+.anuncio-preco {
+    color: #2E7D32;    /* Define o texto verde. */
+    font-size: 1.3rem; /* Usa 1,3 vez o tamanho da fonte do elemento html. */
+    font-weight: bold; /* Aplica negrito. */
+}
+
+/* Estiliza o link de acesso ao anúncio como um botão. */
+.botao-anuncio {
+    display: block; /* Faz o link formar uma caixa de bloco. */
+
+    /* Absorve o espaço livre acima do botão dentro do contêiner flex,
+       mantendo os botões alinhados na base dos cards. */
+    margin-top: auto;
+
+    background-color: #2E7D32; /* Define o fundo verde. */
+    color: #FFFFFF;           /* Define o texto branco. */
+    padding: 10px 16px;       /* Espaço interno: 10px no topo/base e 16px nas laterais. */
+    border-radius: 4px;       /* Arredonda os cantos. */
+    text-align: center;       /* Centraliza o texto. */
+    text-decoration: none;    /* Remove o sublinhado padrão do link. */
+}
+
+/* :hover aplica o estilo quando o ponteiro está sobre o botão.
+   :focus-visible destaca o foco, normalmente na navegação por teclado.
+   A vírgula aplica as mesmas declarações aos dois seletores. */
+.botao-anuncio:hover,
+.botao-anuncio:focus-visible {
+    background-color: #1B5E20; /* Escurece o fundo do botão. */
+}
+
+/* Aplica estas regras quando a largura da área de visualização
+   é menor ou igual a 900px. */
+@media (max-width: 900px) {
+    .lista-anuncios {
+        /* Reduz a grade para duas colunas de mesma largura. */
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Aplica estas regras quando a largura da área de visualização
+   é menor ou igual a 500px.
+   Como aparece depois, substitui a configuração de duas colunas. */
+@media (max-width: 500px) {
+    .lista-anuncios {
+        /* Exibe um card por linha. */
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,58 +1,123 @@
+<!-- Declara que o documento utiliza HTML5. -->
 <!DOCTYPE html>
+
+<!-- Define o português brasileiro como idioma da página. -->
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link href="css/navBar.css" rel="stylesheet">
-    <link href="css/estiloForm.css" rel="stylesheet">
-</head>
-<body>
-    <!-- Cabeçalho da página -->
-    <header>
-        <img src="img/ifMarket.png" style="width:200px;">
-        <h2>IFMarket</h2>
-        <p>A plataforma de anúncios do IFPR campus TB!</p>
-    </header>
 
-    <nav aria-label="Navegação principal">
-        <ul>
-            <li><a href="index.html" title="Ir para a página inicial">Página Inicial</a></li>
-            <li><a href="sobre.html" title="Saiba mais sobre nós">Sobre</a></li>
-            <li style="float: right;"><a href="formLogin.html" title="Faça login para acessar o sistema" class="active">Login</a></li>
-        </ul>
-    </nav>
+    <!-- Reúne as configurações e os recursos utilizados pela página. -->
+    <head>
+        <!-- Define a codificação de caracteres, permitindo acentos. -->
+        <meta charset="UTF-8">
 
-    <main class="main">
-        <section class="secaoFormulario" aria-labelledby="tituloCadastro">
-            <h2 id="tituloCadastro">Cadastro de Usuário</h2>
-            <p>Preencha os campos abaixo. Os campos com * são obrigatórios.</p>
+        <!-- Ajusta a área de visualização à largura do dispositivo,
+            com escala inicial de 100%. -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-            <!-- O envio da foto exige enctype="multipart/form-data".
-                 actionUsuario.php deverá ser criado na etapa de back-end. -->
-            <form class="formulario" action="actionUsuario.php" method="post" enctype="multipart/form-data">
-                
-                <div class="campo">
-                    <label for="emailUsuario">E-mail *</label>
-                    <input type="email" id="emailUsuario" name="emailUsuario" autocomplete="email" required>
-                </div>
+        <!-- Define o título exibido na aba do navegador. -->
+        <title>Login</title>
 
-                <div class="campo">
-                    <label for="senhaUsuario">Senha *</label>
-                    <input type="password" id="senhaUsuario" name="senhaUsuario" autocomplete="new-password" required>
-                </div>
+        <!-- Importa os estilos gerais da página e da navegação. -->
+        <link href="css/navBar.css" rel="stylesheet">
 
-                <div class="acoes">
-                    <button type="submit" class="botao-acao">Login</button>
-                </div>
-            </form>
+        <!-- Importa os estilos dos formulários. -->
+        <link href="css/estiloForm.css" rel="stylesheet">
+    </head>
 
-            <p class="link-login">Ainda não possui uma conta? <a href="formUsuario.html">Clique aqui</a>!</p>
-        </section>
-    </main>
+    <!-- Contém os elementos apresentados na página. -->
+    <body>
 
-    <footer>
-        IFPR Campus Telêmaco Borba - TADS - Disciplina de Tecnologias Web
-    </footer>
-</body>
+        <!-- Cabeçalho com o logo, o nome e a apresentação do sistema. -->
+        <header>
+            <!-- src indica o caminho da imagem.
+                style aplica CSS embutido para definir a largura em 200px. -->
+            <img src="img/ifMarket.png" style="width:200px;">
+
+            <!-- Texto de apresentação do sistema. -->
+            <p>A plataforma de anúncios do IFPR campus TB!</p>
+        </header>
+
+        <!-- Área de navegação.
+            aria-label fornece um nome para essa área às tecnologias assistivas. -->
+        <nav aria-label="Navegação principal">
+
+            <!-- Lista não ordenada com os links do menu. -->
+            <ul>
+                <!-- href indica o destino do link.
+                    title fornece uma informação adicional sobre ele. -->
+                <li><a href="index.html" title="Ir para a página inicial">Página Inicial</a></li>
+                <li><a href="sobre.html" title="Saiba mais sobre nós">Sobre</a></li>
+
+                <!-- float: right posiciona o item à direita.
+                    A classe active destaca o link da página atual pelo CSS. -->
+                <li style="float: right;"><a href="formLogin.html" title="Faça login para acessar o sistema" class="active">Login</a></li>
+            </ul>
+        </nav>
+
+        <!-- Delimita o conteúdo principal da página. -->
+        <main class="main">
+
+            <!-- Agrupa o conteúdo do login.
+                secaoFormulario aplica a centralização e a largura máxima.
+                aria-labelledby referencia o título que nomeia a seção. -->
+            <section class="secaoFormulario" aria-labelledby="tituloLogin">
+
+                <!-- O id identifica o título de forma única na página. -->
+                <h2 id="tituloLogin">Login</h2>
+
+                <!-- Orientação para o preenchimento. -->
+                <p>Preencha os campos abaixo. Os campos com * são obrigatórios.</p>
+
+                <!-- Formulário de autenticação.
+                    class: associa o formulário às regras de estilo.
+                    action: indica o endereço que receberá as credenciais.
+                    method="post": envia os dados no corpo da requisição.
+                    actionLogin.php será implementado na etapa de back-end. -->
+                <form class="formulario" action="actionLogin.php" method="post">
+
+                    <!-- Agrupa o rótulo e o campo de e-mail. -->
+                    <div class="campo">
+
+                        <!-- for associa o rótulo ao campo com id="emailUsuario". -->
+                        <label for="emailUsuario">E-mail *</label>
+
+                        <!-- type="email": verifica o formato básico do endereço.
+                            id: identifica o elemento na página.
+                            name: identifica o campo no envio ao servidor.
+                            autocomplete="email": permite sugerir um e-mail salvo.
+                            required: exige o preenchimento na validação do navegador. -->
+                        <input type="email" id="emailUsuario" name="emailUsuario" autocomplete="email" required>
+                    </div>
+
+                    <!-- Agrupa o rótulo e o campo de senha. -->
+                    <div class="campo">
+                        <label for="senhaUsuario">Senha *</label>
+
+                        <!-- type="password": oculta visualmente os caracteres digitados.
+                            autocomplete="current-password": indica o uso de uma senha existente.
+                            required: exige o preenchimento.
+                            A verificação da senha será realizada no back-end. -->
+                        <input type="password" id="senhaUsuario" name="senhaUsuario" autocomplete="current-password" required>
+                    </div>
+
+                    <!-- Agrupa o botão de envio e aplica os estilos de .acoes. -->
+                    <div class="acoes">
+
+                        <!-- submit solicita o envio do formulário após a validação
+                            dos campos pelo navegador.
+                            botao-acao define a aparência do botão principal. -->
+                        <button type="submit" class="botao-acao">Login</button>
+                    </div>
+                </form>
+
+                <!-- Apresenta um link para o cadastro de novos usuários.
+                    A classe link-login aplica os estilos definidos no CSS. -->
+                <p class="link-login">Ainda não possui uma conta? <a href="formUsuario.html">Clique aqui</a>!</p>
+            </section>
+        </main>
+
+        <!-- Rodapé com a identificação da instituição, do curso e da disciplina. -->
+        <footer>
+            IFPR Campus Telêmaco Borba - TADS - Disciplina de Tecnologias Web
+        </footer>
+    </body>
 </html>
